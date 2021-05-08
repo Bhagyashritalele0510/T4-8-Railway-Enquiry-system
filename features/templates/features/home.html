@@ -1,0 +1,118 @@
+{% extends 'features/base.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Railway Enquiry System</title>
+</head>
+{% load static %}
+<style>
+body{
+
+     background-image:url('{%static "images/pic.jpeg" %}');
+}
+h1{
+    text-align: center;
+    font-size: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: brown;
+}
+.left input[type=submit]{
+    background-color: rgb(80, 134, 233);
+    height: 3em;
+    width: 13em;
+    align-content: center;
+    float: center;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+}
+.middle input[type=submit]{
+    background-color: rgb(43, 170, 43);
+    height: 3em;
+    width: 13em;
+    align-content: center;
+    float: center;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+}
+.right input[type=submit]{
+    background-color: orange;
+    height: 3em;
+    width: 13em;
+    align-content: center;
+    float: center;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding-top: 140px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 42%;
+  padding-left: 350px;
+}
+.right {
+    width: 30%;
+    padding-left: 5px;
+}
+.middle {
+  width: 15%;
+  padding-left: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+    <div class="header">
+        <h1>Railway Enquiry System </h1>
+        </div>
+        <div class="container-fluid">
+        <div class="row1 row">
+            <div class="col-lg-4">
+                <!---<span class="sty" style="font-size:40px; color: yellow;"></span>-->
+            </div>
+            <div class="col-lg-6"></div>
+            <!--<div class="col-lg-1"><span class="sty" style="font-size:17px;">Welcome:{{request.user}}</span></div>-->
+           <!-- <div class="col-lg-1"><a href="logout"><button class="btn btn-danger">Log Out</button> </a></div>-->
+        </div>
+        <div class="row">
+            <div class="column left">
+                <a href="schedule"> <input type="submit" name="submit" value="Train Schedule">
+            </div>
+            <div class="column middle">
+               <a href="search"><input type="submit" name="submit" value="Train Between Station">
+            </div>
+            <div class="column right">
+              
+               <a href="pnr"><input type="submit" name="submit" value="PNR Enquiry">
+            </form>
+              </div>
+
+          </div>
+          
+    
+
+    </body>
+
+</html>
+
+
+  
+{% endblock %}

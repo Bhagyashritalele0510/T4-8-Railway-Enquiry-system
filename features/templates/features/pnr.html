@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PNR NUMBER</title>
+         <!-- Latest compiled and minified CSS -->
+    {% load static %}
+
+   
+    <style>
+        body{
+            background-image:url('{% static "images/pnr.jpeg"%}');
+            background-size:100%;
+            background-repeat:no-repeat;
+
+
+        }
+        .sty
+        {
+            font-family: 'Arial';
+            color:white;
+        }
+        .hd
+        {
+            margin-left:400px;
+
+            }
+         .tform{
+            background-color:rgba(0,0,0,0.3);
+            }
+            .fpnr
+            {
+                width:20%;
+                margin-left:500px;
+                margin-top:150px;
+                padding:15px;
+                background-color:rgba(0,0,0,0.3);
+                }
+
+        .tick{
+            width:20%;
+            height:150px;
+           background-image:url('{% static "images/ticket6"%}');
+            background-size:100% 100%;
+            background-repeat:no-repeat;
+            }
+    </style>
+</head>
+<body>
+
+{%if r%}
+<h1 style="text-align:center;font-family:sans seriff; color: white; background-color: red; opacity: 70%; ">CURRENT PNR STATUS</h1><div class="fpnr">
+{%for i in r%}
+
+    <h4 class="sty">PNR-{{i.pnr}}<br/>
+    NO of seats-{{i.nos}}<br/>
+    Status-{{i.status}}<br/><br/></h4>
+
+{%endfor%}
+        <a href="{%url 'home:hom'%}"><button class="btn btn-success"style="background-color: purple">Back To Homepage</button></a>
+
+</div>
+{%else%}
+<h1 style="text-align:center;font-family:sans seriff; color: white; background-color: red; opacity: 70%; ">ENTER PNR NUMBER</h1>
+
+<form class="fpnr" action="" method="POST" style="background-color: red; opacity: 70%;">
+    {%csrf_token%}
+    <span class="sty">PASSENGER NAME RECORD: </span><input type="text" name="pnr" required=""><br/><br/>
+    <center><input type="submit" class="btn btn-primary" value="Check"></center>
+</form>
+{%endif%}
